@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -17,10 +18,9 @@ import java.util.Set;
 public class Reservation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idReservation;
+    String idReservation;
 
-    Date anneeUniversitaire;
+    LocalDate anneeUniversitaire;
     boolean estValide;
 
     @ManyToMany(cascade = CascadeType.ALL)

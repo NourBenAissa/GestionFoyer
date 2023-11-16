@@ -11,4 +11,8 @@ public interface ReservationService {
     Reservation updateReservation (Reservation res);
 
     Reservation retrieveReservation (long idReservation);
+
+
+    Reservation addReservation(Long idChamber, Long cinEtuiant);
+    Reservation annulerReservation(Long cinEtudiant);
 }
