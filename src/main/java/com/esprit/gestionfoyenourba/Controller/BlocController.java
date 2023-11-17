@@ -27,15 +27,37 @@ public Bloc addBloc(@RequestBody Bloc b){
     return blocService.addBloc(b);
 }
 
-    @GetMapping("{idBloc}")
-    public Bloc retrieveBloc(@PathVariable long idBloc) {
-        return blocService.retrieveBloc(idBloc);
+
+
+
+    @PutMapping
+    public Bloc updateBloc(@RequestBody Bloc bloc) {
+        return blocService.updateBloc(bloc);
     }
 
-    @DeleteMapping("{idBloc}")
-    public void removeBloc(@PathVariable long idBloc) {
-        blocService.removeBloc(idBloc);
+    @GetMapping("/all")
+    public List<Bloc> retrieveBlocs() {
+        return blocService.retrieveBlocs();
+    }
 
+    @GetMapping("/{idBloc}")
+    public Bloc getBlocById(@PathVariable Long idBloc) {
+        return blocService.getBlocById(idBloc);
+    }
+
+    @DeleteMapping("/delete/{idBloc}")
+    public void removeBloc(@PathVariable Long idBloc) {
+        blocService.removeBloc(idBloc);
+    }
+
+
+    @PutMapping("/affecterChambres/{idBloc}")
+    public Bloc affecterChambresABloc(@RequestBody List<Long> idChambre, @PathVariable Long idBloc) {
+        return blocService.affecterChambresABloc(idChambre, idBloc);
+    }
+    @PutMapping("/affecterBlocFoyer/{idBloc}/{idFoyer}")
+    public Bloc affecterBlocAFoyer(@PathVariable Long idBloc, @PathVariable Long idFoyer) {
+        return blocService.affecyerBlocAFoye(idBloc, idFoyer);
     }
 
 }
