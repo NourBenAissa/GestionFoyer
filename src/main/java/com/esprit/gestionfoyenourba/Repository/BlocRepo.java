@@ -10,7 +10,7 @@ import java.util.Set;
 
 public interface BlocRepo extends CrudRepository<Bloc, Long> {
 
-public Set<Bloc> findBlocByChambresTypeChamber(TypeChambre typeChambre);
+//public Set<Bloc> findBlocByChambresTypeChamber(TypeChambre typeChambre);
 
     Chambre findByReservationsContains(Reservation reservation);
 }

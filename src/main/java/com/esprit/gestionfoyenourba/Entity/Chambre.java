@@ -22,11 +22,15 @@ public class Chambre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long idChambre;
     long numeroChambre;
+
     @Enumerated(EnumType.STRING)
     TypeChambre typeChambre;
+
     @ManyToOne
-    Bloc blocs;
-    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idBloc")
+    Bloc bloc;
+
+    @OneToMany
     Set<Reservation> reservations;
 
 }

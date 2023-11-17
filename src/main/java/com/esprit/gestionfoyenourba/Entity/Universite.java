@@ -1,6 +1,7 @@
 package com.esprit.gestionfoyenourba.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -17,7 +18,10 @@ public class Universite {
     long idUniversite;
     String nomUniversite;
     String adresse;
-    @OneToOne(mappedBy = "universite")
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idFoyer")
+    @JsonIgnore
     Foyer foyer;
 
 }

@@ -23,6 +23,6 @@ public class Reservation {
     LocalDate anneeUniversitaire;
     boolean estValide;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     Set<Etudiant> etudiants;
 }

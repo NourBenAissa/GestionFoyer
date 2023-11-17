@@ -1,10 +1,12 @@
 package com.esprit.gestionfoyenourba.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +26,9 @@ public class Etudiant {
     String prenomEt;
     long cin;
     String ecole;
-    Date dateNaissance;
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "etudiants")
-    Set<Reservation> Reservations;
+    LocalDate dateNaissance;
+
+    @ManyToMany(mappedBy="etudiants")
+    @JsonIgnore
+    Set<Reservation> reservations;
 }

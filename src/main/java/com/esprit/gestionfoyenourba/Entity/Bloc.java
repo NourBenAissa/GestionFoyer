@@ -22,8 +22,13 @@ public class Bloc {
     long idBloc;
     String nomBloc;
     long capaciteBloc;
+
     @ManyToOne
+    @JoinColumn(name = "idFoyer")
+    @JsonIgnore
     Foyer foyer;
-    @OneToMany(mappedBy = "blocs",cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "bloc", cascade={CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @JsonIgnore
     Set<Chambre> chambres;
 }

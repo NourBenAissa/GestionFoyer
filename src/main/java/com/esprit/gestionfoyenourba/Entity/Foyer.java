@@ -20,8 +20,11 @@ public class Foyer {
     long idFoyer;
     String nomFoyer;
     long capaciteFoyer;
-    @OneToOne
+
+    @OneToOne(mappedBy = "foyer")
+    @JsonIgnore
     Universite universite;
-    @OneToMany(mappedBy = "foyer",cascade =CascadeType.ALL)
+
+    @OneToMany(mappedBy = "foyer", cascade={CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     Set<Bloc> blocs;
 }
